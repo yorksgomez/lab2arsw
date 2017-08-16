@@ -52,7 +52,7 @@ Ejercicio
 
 1. Analice el código para entender cómo hace uso de hilos para crear un comportamiento autónomo de las N serpientes.
 
-2. De acuerdo con lo anterior, y con la lógica del juego, identifique y escriba claramente:
+2. De acuerdo con lo anterior, y con la lógica del juego, identifique y escriba claramente (archivo RESPUESTAS.txt):
     - Posibles condiciones de carrera.
     - Uso inadecuado de colecciones, considerando su manejo concurrente (para esto, aumente la velocidad del juego y ejecútelo varias veces hasta que se genere un error).
     - Uso innecesario de esperas activas.

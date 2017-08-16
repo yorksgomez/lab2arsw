@@ -6,8 +6,12 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 import enums.GridSize;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 /**
  * @author jd-
@@ -37,6 +41,7 @@ public class SnakeApp {
     public SnakeApp() {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         frame = new JFrame("The Snake Race");
+        frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setSize(618, 640);
         frame.setSize(GridSize.GRID_WIDTH * GridSize.WIDTH_BOX + 17,
@@ -44,7 +49,15 @@ public class SnakeApp {
         frame.setLocation(dimension.width / 2 - frame.getWidth() / 2,
                 dimension.height / 2 - frame.getHeight() / 2);
         board = new Board();
-        frame.add(board);
+        
+        
+        frame.add(board,BorderLayout.CENTER);
+        
+        JPanel actionsBPabel=new JPanel();
+        actionsBPabel.setLayout(new FlowLayout());
+        actionsBPabel.add(new JButton("Action 1"));
+        actionsBPabel.add(new JButton("Action 2"));
+        frame.add(actionsBPabel,BorderLayout.SOUTH);
 
     }
 

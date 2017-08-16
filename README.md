@@ -69,9 +69,13 @@ del monitor del objeto (this).
 
 ### Part II
 
+SnakeRace es un simulador 
 
 - Race conditions
 - Active wait
+
+
+![](img/sshot.png)
 
 A variation of the popular game Snake using multi-snake threads moving against things to practice concurrency
 

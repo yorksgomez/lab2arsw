@@ -75,17 +75,6 @@ public class SnakeApp {
                 Logger.getLogger(SnakeApp.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        /*while (true) {
-            int x = 0;
-            for (int i = 0; i != MAX_THREADS; i++) {
-                if (snakes[i].isSnakeEnd()) {
-                    x++;
-                }
-            }
-            if (x == MAX_THREADS) {
-                break;
-            }
-        }*/
 
         System.out.println("Thread (snake) status:");
         for (int i = 0; i != MAX_THREADS; i++) {

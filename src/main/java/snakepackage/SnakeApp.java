@@ -55,8 +55,7 @@ public class SnakeApp {
         
         JPanel actionsBPabel=new JPanel();
         actionsBPabel.setLayout(new FlowLayout());
-        actionsBPabel.add(new JButton("Action 1"));
-        actionsBPabel.add(new JButton("Action 2"));
+        actionsBPabel.add(new JButton("Action "));
         frame.add(actionsBPabel,BorderLayout.SOUTH);
 
     }
@@ -81,13 +80,18 @@ public class SnakeApp {
         frame.setVisible(true);
 
             
-        for (int i = 0; i != MAX_THREADS; i++) {
-            try {
-                thread[i].join();
-            } catch (InterruptedException ex) {
-                Logger.getLogger(SnakeApp.class.getName()).log(Level.SEVERE, null, ex);
+        while (true) {
+            int x = 0;
+            for (int i = 0; i != MAX_THREADS; i++) {
+                if (snakes[i].isSnakeEnd() == true) {
+                    x++;
+                }
+            }
+            if (x == MAX_THREADS) {
+                break;
             }
         }
+
 
         System.out.println("Thread (snake) status:");
         for (int i = 0; i != MAX_THREADS; i++) {

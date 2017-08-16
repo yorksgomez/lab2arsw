@@ -1,6 +1,7 @@
-# snake-race-thread-concurrency
+### Escuela Colombiana de Ingeniería
+## Arquitecturas de Software - ARSW
 
-![My image](./snakeraceoutput.png)
+#### Laboratorio - Programación concurrente, condiciones de carrera, esquemas de sincronización, colecciones sincronizadas y concurrentes.
 
 
 ### Part I
@@ -23,41 +24,11 @@ Control de hilos con wait/notify.
     la ejecución de los mismos. Utilice los mecanismos de sincronización
     provistos por el lenguaje (wait y notify, notifyAll).
 
-    Conceptos:
+Tenga en cuenta:
 
--   La construcción synchronized se utiliza para obtener acceso
-    exclusivo a un objeto.
+-   La construcción synchronized se utiliza para obtener acceso exclusivo a un objeto.
 
--   Solo un método synchronized puede ejecutarse a la vez en un mismo
-    objeto, los demás deben esperar a que este termine. En este caso el
-    acceso exclusivo se realiza sobre el mismo objeto, i.e., this.
-
--   []{#__DdeLink__532_1117315021 .anchor}Los comandos sincronizados
-    deben especificar el objeto que provee la exclusividad:
-    synchronized(A) {…}
-
-    Los comandos sincronizados pueden anidarse si se necesita
-    exclusividad sobre múltiples objetos.
-
--   La instrucción A.wait() ejecutada en un hilo B espera a que A
-    notifique que puede continuar; (interrumpe la ejecución del hilo B)
-    usualmente se utiliza cuando el hilo B espera un resultado de A.
-    Puede presentarse el caso que un evento diferente al
-    []{#__DdeLink__528_1117315021 .anchor}esperado despierte al objeto
-    B, por este motivo hay que verificar la condición esperada:
-
-    synchronized (A) {
-
-while (&lt;condition does not hold&gt;)
-
-A.wait();
-
-// Perform action appropriate to condition
-
-}
-
-Nota: el método wait solo puede ser llamado por un hilo que sea dueño
-del monitor del objeto (this).
+-   La instrucción A.wait() ejecutada en un hilo B pone en modo suspendido al hilo B (independientemente de qué objeto 'A' sea usado como 'lock'). Para reanudarlo, otro hilo activo puede reanudar a B haciendo 'notify()' al objeto usado como 'lock' (es decir, A).
 
 -   La instrucción notify(), despierta el primer hilo que hizo wait()
     sobre el objeto.
@@ -65,17 +36,37 @@ del monitor del objeto (this).
 -   La instrucción notifyAll(), despierta todos los hilos que estan
     esperando por el objeto (hicieron wait()sobre el objeto).
 
--   La instrucción A.join() espera a que el hilo A finalice.
 
-### Part II
+### Parte II
 
-SnakeRace es un simulador 
+SnakeRace es una versión autónoma, multi-serpiente del famoso juego 'snake', basado en el proyecto de João Andrade -este ejercicio es un 'fork' del mismo-. En este juego:
+	
+- N serpientes funcionan de manera autónoma.
+- No existe el concepto de colisión entre las mismas. La única forma de que mueran es estrellándose contra un muro.
+- Hay ratones distribuídos a lo largo del juego. Como en el juego clásico, cada vez que una serpiente se come a un ratón, ésta crece.
+- Existen unos puntos (flechas rojas) que teletransportan a las serpientes.
+
+![](img/sshot.png)
+
+Ejercicio
+
+1. Analice el código para entender cómo hace uso de hilos para crear un comportamiento autónomo de las N serpientes.
+2. De acuerdo con lo anterior, y con la lógica del juego, identifique y escriba claramente:
+    - Posibles condiciones de carrera.
+    - Uso inadecuado de colecciones, considerando su manejo concurrente (para esto, aumente la velocidad del juego y ejecútelo varias veces hasta que se genere un error).
+2. Identifique las regiones críticas asociadas a las condiciones de carrera, y haga algo para eliminarlas. Tenga en cuenta que se debe sincronizar estríctamente LO NECESARIO. En su documento de respuestas indique, la solución realizada para cada ítem del punto 2.
+
+3. Como se puede observar, el juego está incompleto. Haga los ajustes necesarios para que
+
+    * Botón inicio: iniciar el juego.
+    * Pausa: Pausar el juego. Esto debe detener la ejecución de las serpientes y mostrar en algun lugar de la interfaz (agregue los componentes que desee)
+    
 
 - Race conditions
 - Active wait
 
 
-![](img/sshot.png)
+
 
 A variation of the popular game Snake using multi-snake threads moving against things to practice concurrency
 

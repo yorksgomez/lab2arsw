@@ -51,71 +51,19 @@ SnakeRace es una versión autónoma, multi-serpiente del famoso juego 'snake', b
 Ejercicio
 
 1. Analice el código para entender cómo hace uso de hilos para crear un comportamiento autónomo de las N serpientes.
+
 2. De acuerdo con lo anterior, y con la lógica del juego, identifique y escriba claramente:
     - Posibles condiciones de carrera.
     - Uso inadecuado de colecciones, considerando su manejo concurrente (para esto, aumente la velocidad del juego y ejecútelo varias veces hasta que se genere un error).
-2. Identifique las regiones críticas asociadas a las condiciones de carrera, y haga algo para eliminarlas. Tenga en cuenta que se debe sincronizar estríctamente LO NECESARIO. En su documento de respuestas indique, la solución realizada para cada ítem del punto 2.
+    - Uso innecesario de esperas activas.
 
-3. Como se puede observar, el juego está incompleto. Haga los ajustes necesarios para que
+2. Identifique las regiones críticas asociadas a las condiciones de carrera, y haga algo para eliminarlas. Tenga en cuenta que se debe sincronizar estríctamente LO NECESARIO. En su documento de respuestas indique, la solución realizada para cada ítem del punto 2. Igualmente tenga en cuenta que en los siguientes puntos NO se deben agregar más posibles condiciones de carrera.
 
-    * Botón inicio: iniciar el juego.
-    * Pausa: Pausar el juego. Esto debe detener la ejecución de las serpientes y mostrar en algun lugar de la interfaz (agregue los componentes que desee)
+3. Como se puede observar, el juego está incompleto. Haga los ajustes necesarios para que a través de botones en la interfaz se pueda Iniciar/Pausar/Reanudar el juego: iniciar el juego no se ha iniciado aún, suspender el juego si está en ejecución, reactivar el juego si está suspendido. Para esto tenga en cuenta:
+    * Al pausar (suspender) el juego, en alguna parte de la interfaz (agregue los componentes que desee) se debe mostrar:
+        - La serpiente viva más larga.
+        - La peor serpiente: la que primero murió.
+    
+        Recuerde que la suspensión de las serpientes NO es instantánea, y que se debe garantizar que se muestre información consistente.
     
 
-- Race conditions
-- Active wait
-
-
-
-
-A variation of the popular game Snake using multi-snake threads moving against things to practice concurrency
-
-Project made during 2nd Year of graduation for the class - Concurrent and Parallel Programming
-
-## Instructions
-
-You don't need to do anything, just watch snakes randomly battling against each other.
-
-If you want to control a snake just Mouse-Right-Click it to select and Mouse-Left-Click in a Cell to make her move to its destiny.
-
-There are 4 Special items on the board that Snakes can interact with:
-
-##### Food
-
-- Grabing a rat makes your Snake grow 3 cells.
-
-##### Jump Pad
-
-- Getting a jump pad makes your Snake able to walk through other objects/snakes.
-
-##### Barrier
-
-- Crashing against a barrier will kill your Snake
-
-##### Turbo Boost
-
-- Getting a Turbo Boost will make your Snake move 3 times as fast.
-
-Snakes finish the "race" when they reach the opposite of the Board from where they Spawned.
-
-Detailed instruction can be found in 'The Snake Race - Instrucoes.docx' & 'The Snake Race - Relatorio.docx' (both in Portuguese)
-## How to run
-
-/SnakeRace/src/snakepackage/SnakeApp.java is where the main method is. 
-
-
-
-### Left to do
-
-Need to refactor the code, many parts are messy. It works but it isn't very effective.
-
-More documentation & comments to ease cleaning code.
-
-Some OOP rules (Visibility/Encapsulation) are not being followed because it wasn't the focus on this subject, I should fix that.
-
-
-
-----
-
-
-- Active waiting

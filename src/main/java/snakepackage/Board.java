@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 
 import enums.Grid_Size;
+import java.io.InputStream;
 
 public class Board extends JLabel implements Observer {
 
@@ -116,7 +117,7 @@ public class Board extends JLabel implements Observer {
 
 	private void drawTurboBoosts(Graphics g) {
 		Image light = null;
-		URL resource = getClass().getResource("../Img/lightning.png");
+                InputStream resource=ClassLoader.getSystemResourceAsStream("Img/lightning.png");
 		try {
 			light = ImageIO.read(resource);
 		} catch (IOException e) {
@@ -130,8 +131,10 @@ public class Board extends JLabel implements Observer {
 
 	private void drawJumpPads(Graphics g) {
 		Image jump = null;
-		URL resource = getClass().getResource("../Img/up.png");
-		try {
+                
+                InputStream resource=ClassLoader.getSystemResourceAsStream("Img/up.png");
+
+                try {
 			jump = ImageIO.read(resource);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -151,8 +154,10 @@ public class Board extends JLabel implements Observer {
 	private void drawBarriers(Graphics g) {
 
 		Image firewall = null;
-		URL resource = getClass().getResource("../Img/firewall.png");
-		try {
+                
+                InputStream resource=ClassLoader.getSystemResourceAsStream("Img/firewall.png");
+
+                try {
 			firewall = ImageIO.read(resource);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -168,7 +173,8 @@ public class Board extends JLabel implements Observer {
 
 	private void drawFood(Graphics g) {
 		Image mouse = null;
-		URL resource = getClass().getResource("../Img/mouse.png");
+                InputStream resource=ClassLoader.getSystemResourceAsStream("Img/mouse.png");
+		
 		try {
 			mouse = ImageIO.read(resource);
 		} catch (IOException e) {

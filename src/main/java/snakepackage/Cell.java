@@ -162,44 +162,6 @@ public class Cell {
 
 	}
 
-	/**
-	 * Reserva celula.
-	 * 
-	 * Verifica se cobra tem saltos, se tiver saltos ultrapassa ignora barreiras/cobras e atravessa
-	 * Verifica se foi contra uma outra cobra/barreira - se for verdade fica em wait() at� essa celula ser libertada por outra thread.
-	 * 
-	 *
-	 * @param numero de salto-ao-eixo
-	 * @param idt - Id da cobra
-	 * @return o numero de salto-ao-eixo restante.
-	 */
-	public synchronized int reserveCell(int jumps, int idSnake) {
-		boolean usedJump = false;
-		if (this.full == true)
-			usedJump = true;
-			if (jumps == 0) {
-				try {
-					while (this.full == true) {
-
-						System.out.println("[" + idSnake + "] "
-								+ "I'm going to wait - FULL");
-
-						wait();
-
-					}
-				} catch (InterruptedException e) {
-					Thread.currentThread().interrupt();
-				}
-			}
-
-		this.full = true;
-		notifyAll();
-
-		if (usedJump == true && jumps > 0)
-			jumps--;
-		return jumps;
-
-	}
 
 	/**
 	 * Liberta celula ( ultimo elemento da cobra liberta esta celula para poder ser ocupada por outras )

@@ -10,7 +10,7 @@ Ejercicio inividual o en parejas.
 
 Parte I – Antes de terminar la clase.
 
-Control de hilos con wait/notify.
+Control de hilos con [wait/notify.](http://howtodoinjava.com/core-java/multi-threading/how-to-work-with-wait-notify-and-notifyall-in-java/)
 
 1.  Descargue el proyecto
     [*PrimeFinder*](https://github.com/ARSW-ECI/wait-notify-excercise).

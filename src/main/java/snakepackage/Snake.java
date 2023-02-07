@@ -45,7 +45,6 @@ public class Snake extends Observable implements Runnable {
         growing = INIT_SIZE - 1;
     }
 
-    @Override
     public void run() {
         while (!snakeEnd) {
             
@@ -57,9 +56,9 @@ public class Snake extends Observable implements Runnable {
 
             try {
                 if (hasTurbo == true) {
-                    Thread.sleep(500 / 3);
+                    Thread.sleep(50 / 3);
                 } else {
-                    Thread.sleep(500);
+                    Thread.sleep(50);
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();

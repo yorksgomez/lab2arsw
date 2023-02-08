@@ -75,7 +75,6 @@ public class Board extends JLabel implements Observer {
 				//System.out.println(" ins " + gameboard[i][j]);
 			}
 		}
-
 	}
 
 	private void GenerateBarriers() {
@@ -167,7 +166,7 @@ public class Board extends JLabel implements Observer {
 
 	private void drawFood(Graphics g) {
 		Image mouse = null;
-                InputStream resource=getClass().getClassLoader().getResourceAsStream("./Img/mouse.png");
+                InputStream resource=getClass().getClassLoader().getResourceAsStream("Img/mouse.png");
 
 		try {
 			mouse = ImageIO.read(resource);
@@ -187,20 +186,21 @@ public class Board extends JLabel implements Observer {
 
 			for (Cell p : SnakeApp.getApp().snakes[i].getBody()) {
 				if (p.equals(SnakeApp.getApp().snakes[i].getBody().peekFirst())) {
-					g.setColor(new Color(050+(i*10), 205, 150));
+					g.setColor(SnakeApp.getApp().snakes[i].getHeadColor());
 					g.fillRect(p.getX() * GridSize.WIDTH_BOX, p.getY()
 							* GridSize.HEIGH_BOX, GridSize.WIDTH_BOX,
 							GridSize.HEIGH_BOX);
 				} else {
 					if (SnakeApp.getApp().snakes[i].isSelected()) {
-						g.setColor(new Color(032, 178, 170));
+						g.setColor(new Color(032, 178, 220));
 					} else
-						g.setColor(new Color(034, 139, 034));
+						g.setColor(SnakeApp.getApp().snakes[i].getBodyColor());
 					g.fillRect(p.getX() * GridSize.WIDTH_BOX, p.getY()
 							* GridSize.HEIGH_BOX, GridSize.WIDTH_BOX,
 							GridSize.HEIGH_BOX);
 				}
 			}
+
 		}
 
 	}
